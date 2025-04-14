@@ -1,5 +1,11 @@
 {
+  "questions":
+  [
+{
   "question" : "hello",
     "options" : ["sup", "bro", "wha", "zup"],
-    "answer" : "bro"
+    "answer" : "bro",
+  "explanation": "hello mate"
+}
+  ]
 }
