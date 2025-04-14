@@ -221,18 +221,18 @@
                 
                 // Load quiz data from external URL
                 // For this example, we'll use a placeholder URL - replace with your actual API endpoint
-                const dataUrl = `https://api.example.com/quizdata/${currentTopic}.json`;
+                const dataUrl = `https://raw.githubusercontent.com/nikovlod/quiz/refs/heads/main/${currentTopic}.json`;
                 
                 // For demonstration purposes, we'll simulate loading from URL
                 // In a real application, uncomment the fetch code below and replace with your actual URL
                 
-                /*
+                
                 const response = await fetch(dataUrl);
                 if (!response.ok) {
                     throw new Error(`Failed to load quiz data: ${response.status} ${response.statusText}`);
                 }
                 quizData = await response.json();
-                */
+                
                 
                 // SIMULATION: Instead of actually fetching, we'll simulate successful loading
                 // with some sample data for demonstration purposes
@@ -242,71 +242,7 @@
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
                 // Sample quiz data (replace with your actual API response format)
-                const sampleData = {
-                    "science": {
-                        "questions": [
-                            {
-                                "question": "What is the chemical symbol for gold?",
-                                "options": ["Go", "Au", "Ag", "Gl"],
-                                "answer": "Au"
-                            },
-                            {
-                                "question": "Which planet is known as the Red Planet?",
-                                "options": ["Venus", "Jupiter", "Mars", "Saturn"],
-                                "answer": "Mars"
-                            },
-                            {
-                                "question": "What is the smallest unit of matter?",
-                                "options": ["Atom", "Electron", "Quark", "Molecule"],
-                                "answer": "Quark"
-                            }
-                        ]
-                    },
-                    "history": {
-                        "questions": [
-                            {
-                                "question": "Who was the first President of the United States?",
-                                "options": ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"],
-                                "answer": "George Washington"
-                            },
-                            {
-                                "question": "In which year did World War II end?",
-                                "options": ["1943", "1945", "1947", "1950"],
-                                "answer": "1945"
-                            },
-                            {
-                                "question": "Which ancient civilization built the pyramids of Giza?",
-                                "options": ["Greeks", "Romans", "Egyptians", "Mayans"],
-                                "answer": "Egyptians"
-                            }
-                        ]
-                    },
-                    "programming": {
-                        "questions": [
-                            {
-                                "question": "Which programming language is known for its use in web development?",
-                                "options": ["C++", "JavaScript", "Python", "Ruby"],
-                                "answer": "JavaScript"
-                            },
-                            {
-                                "question": "What does HTML stand for?",
-                                "options": ["Hyper Text Markup Language", "High Tech Multi Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
-                                "answer": "Hyper Text Markup Language"
-                            },
-                            {
-                                "question": "Which symbol is used for single-line comments in JavaScript?",
-                                "options": ["//", "/* */", "#", "<!---->"],
-                                "answer": "//"
-                            }
-                        ]
-                    }
-                };
-                
-                if (!sampleData[currentTopic]) {
-                    throw new Error(`Topic "${currentTopic}" not found in quiz data`);
-                }
-                
-                quizData = sampleData[currentTopic];
+
                 
                 // Hide loading message, show quiz container
                 loadingDiv.style.display = 'none';
