@@ -1,4 +1,4 @@
-                        "questions": [
+{                        "questions": [
                             {
                                 "question": "What is the chemical symbol for gold?",
                                 "options": ["Go", "Au", "Ag", "Gl"],
@@ -15,3 +15,4 @@
                                 "answer": "Quark"
                             }
                         ]
+}
