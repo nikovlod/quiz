@@ -1,0 +1,104 @@
+{
+    "questions": [
+        {
+            "question": "Which of the following is a characteristic sign of cerebellar dysfunction?",
+            "options": [
+                "Flaccid paralysis",
+                "Hyperreflexia",
+                "Intention tremor",
+                "Resting tremor"
+            ],
+            "answer": "Intention tremor"
+        },
+        {
+            "question": "A patient with a cerebellar lesion attempts to touch their nose with their finger. They overshoot the target and then oscillate back and forth. This finding is known as:",
+            "options": [
+                "Akinesia",
+                "Dysmetria leading to intention tremor",
+                "Bradykinesia",
+                "Cogwheel rigidity"
+            ],
+            "answer": "Dysmetria leading to intention tremor"
+        },
+        {
+            "question": "Dysdiadochokinesia, often seen in cerebellar disease, refers to the inability to perform:",
+            "options": [
+                "Smooth, continuous movements",
+                "Movements requiring precise force modulation",
+                "Initiation of voluntary movements",
+                "Rapidly alternating opposite movements"
+            ],
+            "answer": "Rapidly alternating opposite movements"
+        },
+        {
+            "question": "Damage to the cerebellum can lead to ataxia, which is best described as:",
+            "options": [
+                "Incoordination due to errors in the rate, range, force, and direction of movement",
+                "Muscle weakness",
+                "Loss of sensation",
+                "Involuntary muscle contractions"
+            ],
+            "answer": "Incoordination due to errors in the rate, range, force, and direction of movement"
+        },
+        {
+            "question": "A patient with cerebellar dysfunction may exhibit a gait that is described as:",
+            "options": [
+                "Shuffling and narrow-based",
+                "Slow and hesitant",
+                "Wide-based, unsteady, and drunken",
+                "High-stepping"
+            ],
+            "answer": "Wide-based, unsteady, and drunken"
+        },
+        {
+            "question": "The cerebellum plays a crucial role in motor control. Which of the following is a key function attributed to the cerebellum?",
+            "options": [
+                "Initiation of voluntary movement",
+                "Coordination of the force and extent of contraction of different muscles",
+                "Direct control of muscle strength",
+                "Processing of primary sensory information"
+            ],
+            "answer": "Coordination of the force and extent of contraction of different muscles"
+        },
+        {
+            "question": "In cerebellar disease, voluntary movements may be characterized by:",
+            "options": [
+                "Increased speed and precision",
+                "A smooth and fluid execution",
+                "A delay in initiation and decomposition of movement",
+                "Sustained muscle contractions"
+            ],
+            "answer": "A delay in initiation and decomposition of movement"
+        },
+        {
+            "question": "Which of the following reflexes may be altered in cerebellar dysfunction, resulting in a pendular quality?",
+            "options": [
+                "Deep tendon reflexes may continue for a longer duration",
+                "Superficial reflexes may be exaggerated",
+                "Primitive reflexes may reappear",
+                "Autonomic reflexes may become unstable"
+            ],
+            "answer": "Deep tendon reflexes may continue for a longer duration"
+        },
+        {
+            "question": "Damage to the vestibulocerebellum is most likely to result in:",
+            "options": [
+                "Hypotonia and dysmetria",
+                "Ataxia, disequilibrium, and nystagmus",
+                "Intention tremor and dysdiadochokinesia",
+                "Decomposition of movement"
+            ],
+            "answer": "Ataxia, disequilibrium, and nystagmus"
+        },
+        {
+            "question": "What is a common cause of acute cerebellar dysfunction?",
+            "options": [
+                "Amyotrophic Lateral Sclerosis (ALS)",
+                "Alzheimer's Disease",
+                "Multiple Sclerosis affecting the spinal cord only",
+                "Acute alcohol poisoning"
+            ],
+            "answer": "Acute alcohol poisoning"
+        }
+    ]
+}
