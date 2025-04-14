@@ -1,7 +1,5 @@
-"questions" : [
-  {
+{
   "question" : "hello",
     "options" : ["sup", "bro", "wha", "zup"],
     "answer" : "bro"
-  }
-]
+}
