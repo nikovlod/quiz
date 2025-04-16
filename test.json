@@ -2,7 +2,7 @@
   "questions":
   [
 {
-  "question" : "hello",
+  "question" : "hello <img src='hello.jpg'>",
     "options" : ["sup", "bro", "wha", "zup"],
     "answer" : "bro",
   "explanation": "hello mate"
