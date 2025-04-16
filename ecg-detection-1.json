@@ -1,0 +1,26 @@
+{
+    "questions": [
+        {
+            "question": "<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrjXMHcFxAaZYRvHfVD2_BSipWfcql2T2ehQzsrONSlSQ0HO9a_oVG9RustVC9T5GpLRvUm4Kculw9qb4mJuJd04dha5ujaQT1VOymJ1c-EUzrhl_i9eynsnSqlAyPm3Yc0jtoaZQKPwZ28KHWcaU9qbpVag8gIIVsEGWStUmTxXFK5l5dy7UFC2Y9-Bk/s1600/ecg%202.jpg'>",
+            "options": [
+                "Sinus tachycardia",
+                "Sinus arrhythmia",
+                "Sinus bradycardia",
+                "Sinus rhythm"
+            ],
+            "answer": "Sinus arrhythmia",
+            "explanation": "1. Normal sinus P wave with a constant morphology. 2. The P-P interval gradually lengthens and shortens in a cyclical fashion. 3. Constant P-R interval."
+        },
+        {
+            "question": "<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigi8Op5sH_mvTs3aEPAz57wJZTWZ7s2M6xNJWmbm30G6TrMj4_8q6LhDwnU8iBaCtczGiv5jT9cotZDej-PVcUu7-K7wekDc1TNuk2G1ZF-yfdzH-oJ5TyH8LFi4SCed-uzhiFma5oon-aGSBIXLqqF6mfHLDMQPuQKl4WPosbT5tzqwycSWr0VmvCoSw/s1600/ecg%203.jpg'>",
+            "options": [
+                "Sinus tachycardia",
+                "Sinus bradycardia",
+                "Sinus arrhythmia",
+                "Sinus rhythm"
+            ],
+            "answer": "Sinus tachycardia",
+            "explanation": "1. Sinus- as there is P wave and every P wave is followed by QRS complex. That means atrial contraction followed by ventricular contraction. 2. Rate- 107 beats/minute (300-;-2.80=107)."
+        }
+    ]
+}
