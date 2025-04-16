@@ -3,7 +3,7 @@
   [
 {
   "question" : "hello <img src='https://cvphysiology.com/s9v2f-3r4p7/share/ECG%20trace%20with%20grid.png'>",
-    "options" : ["sup", "bro", "wha", "zup"],
+    "options" : ["sup", "bro", "wha", "<img src='https://cvphysiology.com/s9v2f-3r4p7/share/ECG%20trace%20with%20grid.png'>"],
     "answer" : "bro",
   "explanation": "hello mate"
 }
