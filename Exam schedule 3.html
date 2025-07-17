@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Countdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a202c;
+            margin-bottom: 24px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        .info-section {
+            margin-bottom: 24px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .refresh-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4299e1;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            transition: background-color 0.2s;
+        }
+
+        .refresh-button:hover {
+            background: #3182ce;
+        }
+
+        .sample-format {
+            margin-top: 12px;
+            padding: 12px;
+            background: #edf2f7;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .exams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .exam-card {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #4299e1;
+        }
+
+        .exam-card.next-exam {
+            border-left-color: #38a169;
+            background: #f0fff4;
+        }
+
+        .exam-subject {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .exam-datetime {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .countdown.detailed {
+            gap: 8px;
+        }
+
+        .time-unit {
+            text-align: center;
+            padding: 12px;
+            background: #4299e1;
+            border-radius: 4px;
+            color: white;
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .time-unit.next-exam {
+            background: #38a169;
+        }
+
+        .time-unit.detailed {
+            min-width: 60px;
+            padding: 8px;
+        }
+
+        .time-number {
+            font-size: 1.4em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .time-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .expired {
+            background: #e53e3e;
+            border-left-color: #e53e3e;
+        }
+
+        .soon {
+            background: #dd6b20;
+            border-left-color: #dd6b20;
+        }
+
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 12px;
+        }
+
+        .no-exams {
+            text-align: center;
+            color: #718096;
+            margin-top: 24px;
+            padding: 24px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        .days-left {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #e2e8f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Exam Countdown</h1>
+        
+        <div class="info-section">
+            <button class="refresh-button" onclick="loadExams()">
+                🔄 Refresh Data
+            </button>
+            <p style="margin-top: 8px; color: #718096;">Edit the exam schedule in the HTML file to add/modify exams</p>
+        </div>
+
+        <div id="errorMessage"></div>
+        <div id="examsContainer"></div>
+        <div id="lastUpdated" class="last-updated"></div>
+    </div>
+
+    <script>
+        // Exam schedule - Edit this array to add/modify exams
+        const examSchedule = [
+  {
+    subject: "Medicine",
+    datetime: "2025-07-22T06:00:00"
+  },
+  {
+    subject: "Gynae & Obs", 
+    datetime: "2025-07-28T06:00:00"
+  },
+  {
+    subject: "Surgery",
+    datetime: "2025-08-04T06:00:00"
+  },
+{
+    subject: "Eye & ENT",
+    datetime: "2025-08-07T06:00:00"
+  }
+];
+
+        let exams = [];
+        let updateInterval;
+
+        function loadExams() {
+            try {
+                validateAndLoadExams(examSchedule);
+            } catch (error) {
+                showError(`Error loading exam schedule: ${error.message}`);
+            }
+        }
+
+        function validateAndLoadExams(data) {
+            if (!Array.isArray(data)) {
+                showError('JSON must be an array of exam objects.');
+                return;
+            }
+
+            const validExams = [];
+            for (let i = 0; i < data.length; i++) {
+                const exam = data[i];
+                if (!exam.subject || !exam.datetime) {
+                    showError(`Exam ${i + 1} is missing required fields (subject or datetime).`);
+                    return;
+                }
+
+                const examDate = new Date(exam.datetime);
+                if (isNaN(examDate.getTime())) {
+                    showError(`Invalid datetime format in exam ${i + 1}. Use ISO format (YYYY-MM-DDTHH:mm:ss).`);
+                    return;
+                }
+
+                validExams.push({
+                    subject: exam.subject,
+                    datetime: examDate
+                });
+            }
+
+            // Sort: upcoming exams first (by date), then expired exams at bottom
+            exams = validExams.sort((a, b) => {
+                const now = new Date();
+                const aExpired = a.datetime < now;
+                const bExpired = b.datetime < now;
+                
+                // If one is expired and other isn't, non-expired goes first
+                if (aExpired && !bExpired) return 1;
+                if (!aExpired && bExpired) return -1;
+                
+                // If both are upcoming, sort by date (earliest first)
+                if (!aExpired && !bExpired) return a.datetime - b.datetime;
+                
+                // If both are expired, sort by date (most recent first)
+                return b.datetime - a.datetime;
+            });
+            clearError();
+            displayExams();
+            startCountdown();
+        }
+
+        function showError(message) {
+            document.getElementById('errorMessage').innerHTML = `<div class="error">${message}</div>`;
+        }
+
+        function clearError() {
+            document.getElementById('errorMessage').innerHTML = '';
+        }
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${day}/${month}/${year} at ${hours}:${minutes}`;
+        }
+
+        function displayExams() {
+            const container = document.getElementById('examsContainer');
+            
+            if (exams.length === 0) {
+                container.innerHTML = '<div class="no-exams">No exams found. Please upload a valid JSON file.</div>';
+                return;
+            }
+
+            container.innerHTML = '<div class="exams-grid">' + 
+                exams.map((exam, index) => createExamCard(exam, index === 0)).join('') + 
+                '</div>';
+        }
+
+        function createExamCard(exam, isNextExam) {
+            const now = new Date();
+            const timeLeft = exam.datetime - now;
+            const isExpired = timeLeft < 0;
+            const isSoon = timeLeft < 86400000; // 24 hours in milliseconds
+
+            const days = Math.floor(Math.abs(timeLeft) / 86400000);
+            const hours = Math.floor((Math.abs(timeLeft) % 86400000) / 3600000);
+            const minutes = Math.floor((Math.abs(timeLeft) % 3600000) / 60000);
+            const seconds = Math.floor((Math.abs(timeLeft) % 60000) / 1000);
+
+            // For the most recent exam, calculate total hours instead of days
+            const totalHours = Math.floor(Math.abs(timeLeft) / 3600000);
+
+            const statusClass = isExpired ? 'expired' : (isSoon ? 'soon' : '');
+            const timePrefix = isExpired ? 'Expired ' : '';
+            const cardClass = isExpired ? 'expired' : (isSoon ? 'soon' : '');
+            const nextExamClass = isNextExam && !isExpired ? 'next-exam' : '';
+
+            let countdownContent = '';
+            
+            if (isNextExam && !isExpired) {
+                // Show detailed countdown with total hours for the next exam
+                countdownContent = `
+                    <div class="countdown detailed">
+                        <div class="time-unit next-exam detailed">
+                            <span class="time-number">${totalHours}</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit next-exam detailed">
+                            <span class="time-number">${minutes}</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-unit next-exam detailed">
+                            <span class="time-number">${seconds}</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                `;
+            } else if (!isExpired) {
+                // Show days left for other upcoming exams
+                countdownContent = `
+                    <div class="days-left">${days} days left</div>
+                `;
+            } else {
+                // Show expired countdown
+                countdownContent = `
+                    <div class="countdown">
+                        <div class="time-unit ${statusClass}">
+                            <span class="time-number">${days}</span>
+                            <span class="time-label">${timePrefix}Days</span>
+                        </div>
+                        <div class="time-unit ${statusClass}">
+                            <span class="time-number">${hours}</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit ${statusClass}">
+                            <span class="time-number">${minutes}</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="exam-card ${cardClass} ${nextExamClass}">
+                    <div class="exam-subject">${exam.subject}</div>
+                    <div class="exam-datetime">${formatDate(exam.datetime)}</div>
+                    ${countdownContent}
+                </div>
+            `;
+        }
+
+        function startCountdown() {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
+
+            updateInterval = setInterval(() => {
+                displayExams();
+                updateLastUpdated();
+            }, 1000); // Update every second for real-time countdown
+
+            updateLastUpdated();
+        }
+
+        function updateLastUpdated() {
+            document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+        }
+
+        window.onload = function() {
+            loadExams();
+            updateLastUpdated();
+        };
+    </script>
+</body>
+</html>
