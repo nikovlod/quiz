@@ -1,0 +1,114 @@
+{
+  "questions": [
+    {
+      "question": "Rachel is a 45-year-old who has routine bloods for a health check. Blood tests show the following:<br><br>Na+: 125 mmol/l<br>K+: 4.3 mmol/l<br>Urea: 5.3 mmol/l<br>Creatinine: 60 umol/l<br><br>She takes the following medications: sertraline, carbimazole, amlodipine, metformin, aspirin. Which of her medications is likely to be the cause of her hyponatraemia?",
+      "options": [
+        "Aspirin",
+        "Metformin",
+        "Amlodipine",
+        "Sertraline"
+      ],
+      "answer": "Sertraline",
+      "explanation": "Out of the list above sertraline is the medication known to cause hyponatraemia.<br><br>Other common drug causes of low sodium include: chlorpropramide, carbamazepine, selective serotonin reuptake inhibitor (SSRI) ant idepressants, tricycl ic antidepressants, lithium, MDMA/ecstasy, t ramadol, haloperidol, vincristine, desmopressin, fluphenazine."
+    },
+    {
+      "question": "Which one of the following interventions is most likely to be beneficial in a patient with schizophrenia?",
+      "options": [
+        "Counselling",
+        "Cognitive behavioral therapy",
+        "Adherence therapy",
+        "Supportive psychotherapy"
+      ],
+      "answer": "Cognitive behavioral therapy",
+      "explanation": ""
+    },
+    {
+      "question": "A 32-year-old woman is brought to the Emergency department by the police. She was found preaching outs ide the local supermarket, telling people that she is god's disciple and has been sent to prevent them from wasting money. It transpires that she has also spent up to her limit on her bank card. She began treatment with fluoxetine some 3 weeks ago for reactive depression after splitting from her husband. A limited physical examination due to poor compliance is unremarkable, as is a routine blood screen.<br>Which of the following is the most likely diagnosis?",
+      "options": [
+        "Mania",
+        "Psychotic depression",
+        "Munchausen's syndrome",
+        "Schizophrenia"
+      ],
+      "answer": "Mania",
+      "explanation": "Key features here include clear evidence of delusions of grandeur, coupled with starting treatment for fluoxetine some 3 weeks ago. Taken together these factors suggest possible mania. it is most likely to be related to selective serotonin reuptake inhibitor prescription for her depression.<br><br>Psychotic depression is unl ikely given there are no delusions related to ill ness, loss of selfworth o r other features usual ly expected. Schizophrenia is also unlikely given the absence of features such as auditory hallucinations or delusions of reference. Rather than being associated with agitation and hyperactivity, drowsiness and memory loss are more common featu res of viral encephalitis. The proximity to fluoxetine prescription, and the fact features of her illness fit so well with mania, make Munchausen's syndrome unlikely."
+    },
+    {
+      "question": "A 24-year-old female is reviewed following a course of cognitive behaviour therapy for bulimia. She feels there has been no improvement in her condition and is interested in trying pharmacological treatments. Which one of the following is most suitable?",
+      "options": [
+        "Low dose fluoxetine",
+        "Low dose amitriptyline",
+        "High dose fluoxetine",
+        "High dose amitriptyline"
+      ],
+      "answer": "High dose fluoxetine",
+      "explanation": ""
+    },
+    {
+      "question": "A 23-year-old man asks to be referred to a plastic surgeon. From his records you can see he has been treated for anxiety and depression with fluoxetine previously and has been off work with back pain for the past three months. He is concerned that his ears are too big in proportion to his face. He reports that he now seldom leaves the house because of this. On examination his ears appear to be within normal limits. What is the most appropriate description of this behaviour?",
+      "options": [
+        "Dysmorphophobia",
+        "Generalized anxiety disorder",
+        "Hypochondriasis",
+        "Malingering"
+      ],
+      "answer": "Dysmorphophobia",
+      "explanation": ""
+    },
+    {
+      "question": "A 34-year-old male comes to clinic for an asthma review. He tells you he has recently been diagnosed with a personality disorder. The diagnosis came about after he was referred by his boss to occupational health for being overly sensitive and getting angry when colleagues told him how to do his job. He feels his diagnosis is unjustified and is all a set up as his boss, who used to be a good friend, knows he is better at his job than him.<br>What diagnosis is he most likely to have received?",
+      "options": [
+        "Schizoid personality disorder",
+        "Narcissistic personality disorder",
+        "Borderline personality disorder",
+        "Paranoid personality disorder"
+      ],
+      "answer": "Paranoid personality disorder",
+      "explanation": "The correct answer is paranoid personality disorder. Patients with paranoid personality disorder are over sensitive, unforgiving and perceive feedback as attacks on their character. They can be preoccupied with conspiracy theories and tend to question the loyalty of others. Based on the patients' description, this is the most likely diagnosis.<br><br>Option 1 is incorrect. Patients with schizoid personality disorder tend to have a lack of interest in sexual interactions are cold and lack close friendships preferring to spend time alone. They are also indiffe rent to praise making this unlikely to be the correct answer.<br><br>Narcissistic personality disorder is not the correct answer. These patients have a heightened impression of self-importance and entitlement often believing they have unlimited abilities to succeed, become powerful or look beautiful. Additionally, they lack empathy and will happily take advantage of others to achieve their own need.<br><br>Borderline personality disorder is also incorrect. This is characterised by emotional instability, impulsive behaviour, feelings of emptiness and recurrent attempts at self-harm. Patients often fear abandonment as opposed to the questioning loyalty of those around them.<br>Patients with avoidant personal ity disorder tend to avoid social contact/relationships due to fear of being criticised, rejected or embarrassed as opposed to being unforgiving, making this less likely the correct answer."
+    },
+    {
+      "question": "The risk of developing schizophrenia if one monozygotic twin is affected is approximately",
+      "options": [
+        "10",
+        "20",
+        "50",
+        "75"
+      ],
+      "answer": "50",
+      "explanation": ""
+    },
+    {
+      "question": "A 65-year-old female with a history of ischaemic heart disease is noted to be depressed following a recent myocardial infarction. What would be the most appropriate antidepressant to start?",
+      "options": [
+        "Venlafaxine",
+        "Sertraline",
+        "Imipramine",
+        "Paroxetine"
+      ],
+      "answer": "Sertraline",
+      "explanation": "Sertraline is the preferred antidepressant following a myocardial infarction as there is more evidence for its safe use in this situation than other antidepressants"
+    },
+    {
+      "question": "Which one of the following statements regarding post-partum mental health problems is NOT true?",
+      "options": [
+        "Post-natal depression is seen in around 2-3% of women",
+        "Sertraline can be used whilst mothers are breast feeding",
+        "Puerperal psychosis has a recurrence rate of around 20%",
+        "Baby-blues are seen in the majority of women"
+      ],
+      "answer": "Post-natal depression is seen in around 2-3% of women",
+      "explanation": "Post-natal depression is seen in around 10% of women"
+    },
+    {
+      "question": "You a reviewing a 24-year-old man who complains of auditory hallucinations. These have become increasingly common and are now happening on a daily basis. Which one of the following factors in his history is the strongest risk factor for psychotic disorders?",
+      "options": [
+        "Indian subcontinent ethnicity",
+        "A history of being sexually abused when younger",
+        "A history of long-term cannabis use",
+        "Having a parent with schizophrenia"
+      ],
+      "answer": "Having a parent with schizophrenia",
+      "explanation": "Family history is the strongest risk factor for psychotic disorders."
+    }
+  ]
+}
