@@ -1,0 +1,75 @@
+{
+  "questions": [
+    {
+      "question": "A 35-year-old, non-smoker is referred for genetic testing following the diagnosis of his brother with alpha-1 antitrypsin deficiency (A1AD). He undergoes protease inhibitor (Pi) genotyping which confirms the Pi carrier genotype. He is advised that he is unlikely to develop respiratory complications provided he remains a non-smoker.\n\nWhat specific protease inhibitor genotype does the patient carry? ",
+      "options": [
+        "PiFZ",
+        "PiMM",
+        "PiMZ",
+        "PiSZ",
+        "PiZZ"
+      ],
+      "answer": "PiMZ",
+      "explanation": "The patient is a carrier of the PiMZ genotype, which is associated with a lower than normal serum level of alpha-1 antitrypsin. However, as a non-smoker, the risk of developing respiratory complications is very low. The PiMM genotype is the normal genotype and is not associated with any complications or being a carrier for the condition."
+    },
+    {
+      "question": "Question 2 of 233\nA 57-year-old gentleman presents with a chronic, recurrent cough, expiratory wheeze and increased exertional breathlessness. He has never smoked and very limited exposure to passive smoking. He has no significant occupational exposure to pollutants or irritants. Spirometry demonstrates an obstructive picture with limited bronchodilator reversibility. He is suspected of having alpha1-antitrypsin deficiency. What is alpha1-antitrypsin?",
+      "options": [
+        "Cytokine inhibitor",
+        "Co-factor for surfactant protein ",
+        "Protease inhibitor of neutrophil elastase",
+        "Goblet cell cytokine "
+      ],
+      "answer": "Protease inhibitor of neutrophil elastase",
+      "explanation": "Alpha1-antitrypsin is produced by the liver and by inhibiting neutrophil elastase helps protect the lungs against the functions of this enzyme. Deficiency can cause emphysema and cirrhosis."
+    },
+    {
+      "question": "A 40-year-old obese woman presented to her GP complaining of daytime somnolence. She is asked to fill out an Epworth sleepiness scale questionnaire and scores 20/24.\n\nHer GP arranges overnight pulse oximetry, and she is diagnosed with obstructive sleep apnoea. Alongside weight loss, what other intervention is appropriate in this setting?\n\n",
+      "options": [
+        "Overnight BiPAP (Bilevel Positive Airway Pressure) ventilation ",
+        "Overnight CPAP (Continuous Positive Airway Pressure) ventilation ",
+        "A mandibular advancement device ",
+        "Antihypertensive medication ",
+        "Uvulopalatopharyngoplasty "
+      ],
+      "answer": "Overnight CPAP (Continuous Positive Airway Pressure) ventilation ",
+      "explanation": "Following weight loss, CPAP is the first-line treatment for moderate/severe obstructive sleep apnoea. SIGN guidelines recommend that for moderate to severe sleep apnoea treatment is with weight loss and overnight CPAP. BiPAP should not be used routinely for people with OSA and is only reserved for those with coexisting ventilatory failure. Mandibular advancement devices should only be used in those that can't tolerate CPAP and only have mild symptoms. Hypertension can be a consequence of OSA but antihypertensive do not address the underlying problem. Uvulopalatopharyngoplasty, the surgical removal of the uvula, soft palate and pharynx have been shown in randomised controlled trials not to be effective in the treatment of OSA."
+    },
+    {
+      "question": "Question 4 of 233 \n\nWhich one of the following pathophysiological changes is most responsible for emphysema? \n\nMucosal oedema and mucus plugging \nDestruction of alveolar walls secondary to proteinases \nAirway hypersensitivity \nSmooth muscle contraction \nHypertrophy of mucous secreting glands \n\nProteinases such as elastase cause irreversible damage to the supporting connective tissue of the alveolar septa. Smoking accelerates this process.",
+      "options": [
+        "Mucosal oedema and mucus plugging",
+        "Destruction of alveolar walls secondary to proteinases",
+        "Airway hypersensitivity",
+        "Smooth muscle contraction",
+        "Hypertrophy of mucous secreting glands"
+      ],
+      "answer": "Destruction of alveolar walls secondary to proteinases",
+      "explanation": "Proteinases such as elastase cause irreversible damage to the supporting connective tissue of the alveolar septa. Smoking accelerates this process."
+    },
+    {
+      "question": "A 28-year-old builder attends the respiratory clinic for review. He reports a 6-month history of progressive dyspnoea on exertion associated with coughing. He has been started on a salbutamol inhaler by his general practitioner which he is now using several times a day. He has been smoking since the age of 18 years and he has a 10 pack-year history. Additionally, he reports occupational exposure to asbestos. Further investigation with spirometry testing reports an FEV1/FVC ratio of 0.68. FEV1 pre-bronchodilator therapy is 3.0L. FEV1 post-bronchodilator therapy is 3.4L\n\nWhat is the most appropriate intervention for this patient?",
+      "options": [
+        "Long-acting beta-agonist (LABA) and long-acting muscarinic antagonist (LAMA) inhaler",
+        "Long-acting beta-agonist (LABA) inhaler",
+        "Low dose inhaled corticosteroid (ICS)",
+        "Omalizumab",
+        "Oral glucocorticoids"
+      ],
+      "answer": "Low dose inhaled corticosteroid (ICS)",
+      "explanation": "The patient has a history of progressive dyspnoea on exertion associated with coughing, and spirometry testing reports an FEV1/FVC ratio of 0.68, indicating obstructive pathology. The increase in FEV1 from 3.0L to 3.4L with bronchodilator therapy suggests reversibility. The addition of a low dose ICS inhaler is the next step in the maintenance treatment of asthma after the failure of a short-acting beta-agonist (SABA) inhaler."
+    },
+    {
+      "question": "A 74-year-old woman with thyroid cancer is admitted due to shortness of breath. What is the best investigation to assess for possible compression of the upper airways?\n\nArterial blood gases \n\nForced vital capacity \n\nTransfer factor \n\nPeak expiratory flow rate \n\nFlow volume loop ",
+      "options": [
+        "Arterial blood gases",
+        "Forced vital capacity",
+        "Transfer factor",
+        "Peak expiratory flow rate",
+        "Flow volume loop"
+      ],
+      "answer": "Flow volume loop",
+      "explanation": "A flow volume loop (FVL) is a graphical representation of the rate of airflow on the y-axis against the total volume breathed on the x-axis. It provides a dynamic view of lung volumes and capacities, which can be used to identify both obstructive and restrictive lung diseases. In this case, it would help to assess whether there's any upper airway obstruction caused by compression due to thyroid cancer. Arterial blood gases are useful in assessing the oxygenation status and acid-base balance of a patient but they do not provide information about possible airway obstruction. Forced vital capacity (FVC) measures the maximum amount of air a person can exhale forcefully after taking the deepest breath possible. While it does provide information about lung capacity, it cannot specifically detect upper airway obstruction. Transfer factor, also known as diffusing capacity or DLCO, measures how well oxygen passes from the air sacs of your lungs into your blood. This test is usually done to diagnose conditions that affect the alveolar-capillary membrane like pulmonary fibrosis or emphysema, but it wouldn't directly indicate an upper airway obstruction. Lastly, Peak expiratory flow rate (PEFR) measures how fast a person can exhale. It's often used in monitoring patients with asthma but isn't sensitive enough to detect an upper airway obstruction caused by compression from thyroid cancer."
+    }
+  ]
+}
