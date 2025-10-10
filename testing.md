@@ -1,6 +1,7 @@
 ---
 layout: default # Or 'page' if you have a custom layout; optional if using default theme
 title: Difference between Livedo reticularis, Livedo racemosa, Retiform purpura # Optional: Sets the page title
+---
 
 ### 1️⃣ Livedo Reticularis
 
