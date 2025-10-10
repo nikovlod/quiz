@@ -1,14 +1,6 @@
 ---
-layout: page  # Or 'page' if you have a custom layout; optional if using default theme
-title: Testing Page  # Optional: Sets the page title
----
-
-# Your Markdown content here
-
-
-আরে, চমৎকার প্রশ্ন! Differentiating these vascular patterns is crucial for recognizing underlying pathology, often pointing straight to systemic diseases. As a diligent Med student (হরিবোল here!), I've synthesized the key distinctions for you, focusing on morphology, blanching, and etiology.
-
----
+layout: default # Or 'page' if you have a custom layout; optional if using default theme
+title: Difference between Livedo reticularis, Livedo racemosa, Retiform purpura # Optional: Sets the page title
 
 ### 1️⃣ Livedo Reticularis
 
