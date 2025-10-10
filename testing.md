@@ -1,5 +1,5 @@
 ---
-layout: post  # Or 'page' if you have a custom layout; optional if using default theme
+layout: page  # Or 'page' if you have a custom layout; optional if using default theme
 title: Testing Page  # Optional: Sets the page title
 ---
 
