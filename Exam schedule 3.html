@@ -224,13 +224,31 @@
 
         let exams = [];
         let updateInterval;
-        let showDetailedHours = false; // Initial view is days
+        let showDetailedHours = false; // Initial view default
+
+        // Function to handle URL parameters
+        function applyUrlSettings() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            
+            if (type === 'hour') {
+                showDetailedHours = true;
+            } else if (type === 'day') {
+                showDetailedHours = false;
+            }
+            
+            updateToggleButtonText();
+        }
 
         function toggleFormat() {
             showDetailedHours = !showDetailedHours;
+            updateToggleButtonText();
+            displayExams(); // Re-render the exam cards with the new format
+        }
+
+        function updateToggleButtonText() {
             const button = document.getElementById('toggleFormatBtn');
             button.textContent = showDetailedHours ? 'Show Days' : 'Show Hours';
-            displayExams(); // Re-render the exam cards with the new format
         }
 
         function loadExams() {
@@ -372,6 +390,7 @@
         }
 
         window.onload = function() {
+            applyUrlSettings(); // Check for ?type=hour or ?type=day
             loadExams();
         };
     </script>
