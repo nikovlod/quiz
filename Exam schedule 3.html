@@ -44,7 +44,7 @@
             text-align: center;
         }
 
-        .refresh-button {
+        .refresh-button, .toggle-button {
             display: inline-block;
             padding: 8px 16px;
             background: #4299e1;
@@ -55,20 +55,11 @@
             font-weight: 500;
             border: none;
             transition: background-color 0.2s;
+            margin: 4px;
         }
 
-        .refresh-button:hover {
+        .refresh-button:hover, .toggle-button:hover {
             background: #3182ce;
-        }
-
-        .sample-format {
-            margin-top: 12px;
-            padding: 12px;
-            background: #edf2f7;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            text-align: left;
         }
 
         .exams-grid {
@@ -151,26 +142,12 @@
             border-left-color: #e53e3e;
         }
 
-        .soon {
-            background: #dd6b20;
-            border-left-color: #dd6b20;
-        }
-
         .error {
             background: #fed7d7;
             color: #c53030;
             padding: 12px;
             border-radius: 4px;
             margin-top: 12px;
-        }
-
-        .no-exams {
-            text-align: center;
-            color: #718096;
-            margin-top: 24px;
-            padding: 24px;
-            background: #f8f9fa;
-            border-radius: 4px;
         }
 
         .last-updated {
@@ -187,13 +164,6 @@
             text-align: center;
             margin-bottom: 8px;
         }
-
-        code {
-            background: #e2e8f0;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-size: 13px;
-        }
     </style>
 </head>
 <body>
@@ -203,6 +173,9 @@
         <div class="info-section">
             <button class="refresh-button" onclick="loadExams()">
                 🔄 Refresh Data
+            </button>
+            <button id="toggleFormatBtn" class="toggle-button" onclick="toggleFormat()">
+                Show Hours
             </button>
             <p style="margin-top: 8px; color: #718096;">Edit the exam schedule in the HTML file to add/modify exams</p>
         </div>
@@ -215,14 +188,50 @@
     <script>
         // Exam schedule - Edit this array to add/modify exams
         const examSchedule = [
-  {
-    subject: "Written",
-    datetime: "2025-11-04T06:00:00"
-  },
-];
+          {
+            subject: "Medicine I",
+            datetime: "2025-11-04T10:00:00"
+          },
+          {
+            subject: "Medicine II",
+            datetime: "2025-11-06T10:00:00"
+          },
+          {
+            subject: "Gynae I",
+            datetime: "2025-11-12T10:00:00"
+          },
+          {
+            subject: "Gynae II",
+            datetime: "2025-11-15T10:00:00"
+          },
+          {
+            subject: "Gynae (OSPE)",
+            datetime: "2025-11-18T10:30:00"
+          },
+          {
+            subject: "Medicine (OSPE)",
+            datetime: "2025-11-19T10:30:00"
+          },
+          {
+            subject: "Medicine Viva",
+            datetime: "2025-11-27T09:00:00"
+          },
+          {
+            subject: "Gynae Viva",
+            datetime: "2025-12-06T09:00:00"
+          }
+        ];
 
         let exams = [];
         let updateInterval;
+        let showDetailedHours = false; // Initial view is days
+
+        function toggleFormat() {
+            showDetailedHours = !showDetailedHours;
+            const button = document.getElementById('toggleFormatBtn');
+            button.textContent = showDetailedHours ? 'Show Days' : 'Show Hours';
+            displayExams(); // Re-render the exam cards with the new format
+        }
 
         function loadExams() {
             try {
@@ -238,42 +247,28 @@
                 return;
             }
 
-            const validExams = [];
-            for (let i = 0; i < data.length; i++) {
-                const exam = data[i];
+            const validExams = data.map(exam => {
                 if (!exam.subject || !exam.datetime) {
-                    showError(`Exam ${i + 1} is missing required fields (subject or datetime).`);
-                    return;
+                    throw new Error('Exam is missing required fields (subject or datetime).');
                 }
-
                 const examDate = new Date(exam.datetime);
                 if (isNaN(examDate.getTime())) {
-                    showError(`Invalid datetime format in exam ${i + 1}. Use ISO format (YYYY-MM-DDTHH:mm:ss).`);
-                    return;
+                    throw new Error('Invalid datetime format. Use ISO format (YYYY-MM-DDTHH:mm:ss).');
                 }
+                return { subject: exam.subject, datetime: examDate };
+            });
 
-                validExams.push({
-                    subject: exam.subject,
-                    datetime: examDate
-                });
-            }
-
-            // Sort: upcoming exams first (by date), then expired exams at bottom
             exams = validExams.sort((a, b) => {
                 const now = new Date();
                 const aExpired = a.datetime < now;
                 const bExpired = b.datetime < now;
                 
-                // If one is expired and other isn't, non-expired goes first
                 if (aExpired && !bExpired) return 1;
                 if (!aExpired && bExpired) return -1;
-                
-                // If both are upcoming, sort by date (earliest first)
                 if (!aExpired && !bExpired) return a.datetime - b.datetime;
-                
-                // If both are expired, sort by date (most recent first)
                 return b.datetime - a.datetime;
             });
+            
             clearError();
             displayExams();
             startCountdown();
@@ -298,12 +293,10 @@
 
         function displayExams() {
             const container = document.getElementById('examsContainer');
-            
             if (exams.length === 0) {
-                container.innerHTML = '<div class="no-exams">No exams found. Please upload a valid JSON file.</div>';
+                container.innerHTML = '<div class="no-exams">No exams scheduled.</div>';
                 return;
             }
-
             container.innerHTML = '<div class="exams-grid">' + 
                 exams.map((exam, index) => createExamCard(exam, index === 0)).join('') + 
                 '</div>';
@@ -313,64 +306,48 @@
             const now = new Date();
             const timeLeft = exam.datetime - now;
             const isExpired = timeLeft < 0;
-            const isSoon = timeLeft < 86400000; // 24 hours in milliseconds
 
-            const days = Math.floor(Math.abs(timeLeft) / 86400000);
-            const hours = Math.floor((Math.abs(timeLeft) % 86400000) / 3600000);
-            const minutes = Math.floor((Math.abs(timeLeft) % 3600000) / 60000);
-            const seconds = Math.floor((Math.abs(timeLeft) % 60000) / 1000);
-
-            // For the most recent exam, calculate total hours instead of days
-            const totalHours = Math.floor(Math.abs(timeLeft) / 3600000);
-
-            const statusClass = isExpired ? 'expired' : (isSoon ? 'soon' : '');
-            const timePrefix = isExpired ? 'Expired ' : '';
-            const cardClass = isExpired ? 'expired' : (isSoon ? 'soon' : '');
             const nextExamClass = isNextExam && !isExpired ? 'next-exam' : '';
+            const cardClass = isExpired ? 'expired' : '';
 
             let countdownContent = '';
             
-            if (isNextExam && !isExpired) {
-                // Show detailed countdown with total hours for the next exam
-                countdownContent = `
-                    <div class="countdown detailed">
-                        <div class="time-unit next-exam detailed">
-                            <span class="time-number">${totalHours}</span>
-                            <span class="time-label">Hours</span>
-                        </div>
-                        <div class="time-unit next-exam detailed">
-                            <span class="time-number">${minutes}</span>
-                            <span class="time-label">Minutes</span>
-                        </div>
-                        <div class="time-unit next-exam detailed">
-                            <span class="time-number">${seconds}</span>
-                            <span class="time-label">Seconds</span>
-                        </div>
-                    </div>
-                `;
-            } else if (!isExpired) {
-                // Show days left for other upcoming exams
-                countdownContent = `
-                    <div class="days-left">${days} days left</div>
-                `;
-            } else {
-                // Show expired countdown
+            if (isExpired) {
+                const days = Math.floor(Math.abs(timeLeft) / 86400000);
+                const hours = Math.floor((Math.abs(timeLeft) % 86400000) / 3600000);
                 countdownContent = `
                     <div class="countdown">
-                        <div class="time-unit ${statusClass}">
+                        <div class="time-unit expired">
                             <span class="time-number">${days}</span>
-                            <span class="time-label">${timePrefix}Days</span>
+                            <span class="time-label">Expired Days</span>
                         </div>
-                        <div class="time-unit ${statusClass}">
+                        <div class="time-unit expired">
                             <span class="time-number">${hours}</span>
                             <span class="time-label">Hours</span>
                         </div>
-                        <div class="time-unit ${statusClass}">
+                    </div>`;
+            } else if (showDetailedHours) {
+                const totalHours = Math.floor(timeLeft / 3600000);
+                const minutes = Math.floor((timeLeft % 3600000) / 60000);
+                const seconds = Math.floor((timeLeft % 60000) / 1000);
+                countdownContent = `
+                    <div class="countdown detailed">
+                        <div class="time-unit ${nextExamClass} detailed">
+                            <span class="time-number">${totalHours}</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit ${nextExamClass} detailed">
                             <span class="time-number">${minutes}</span>
                             <span class="time-label">Minutes</span>
                         </div>
-                    </div>
-                `;
+                        <div class="time-unit ${nextExamClass} detailed">
+                            <span class="time-number">${seconds}</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>`;
+            } else {
+                const days = Math.floor(timeLeft / 86400000);
+                countdownContent = `<div class="days-left">${days} days left</div>`;
             }
 
             return `
@@ -378,20 +355,15 @@
                     <div class="exam-subject">${exam.subject}</div>
                     <div class="exam-datetime">${formatDate(exam.datetime)}</div>
                     ${countdownContent}
-                </div>
-            `;
+                </div>`;
         }
 
         function startCountdown() {
-            if (updateInterval) {
-                clearInterval(updateInterval);
-            }
-
+            if (updateInterval) clearInterval(updateInterval);
             updateInterval = setInterval(() => {
                 displayExams();
                 updateLastUpdated();
-            }, 1000); // Update every second for real-time countdown
-
+            }, 1000);
             updateLastUpdated();
         }
 
@@ -401,7 +373,6 @@
 
         window.onload = function() {
             loadExams();
-            updateLastUpdated();
         };
     </script>
 </body>
